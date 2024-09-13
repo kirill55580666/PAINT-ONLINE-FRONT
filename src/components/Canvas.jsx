@@ -22,7 +22,7 @@ const Canvas = observer(() => {
 
     useEffect(() => {
         canvasState.setCanvas(canvasRef.current)
-        firstRender(canvasRef, params.get('id'))
+        firstRender(canvasRef, params.get('sessionId'))
         //canvasState.setUsername('New User')
         // axios.get(`http://localhost:5000/history?id=${params.id}`)
         //     .then(response => {
@@ -33,7 +33,7 @@ const Canvas = observer(() => {
 
     useEffect(() => {
         if(canvasState.username) {
-            canvasWebSocket(canvasRef, params.get('id'))
+            canvasWebSocket(canvasRef, params.get('sessionId'))
         }
 
     }, [canvasState.username]) // окрыть сокет, отправлять сообщения серверу о рисовани, принимать сообщения о рисовании
@@ -44,7 +44,7 @@ const Canvas = observer(() => {
     }
 
     const mouseUpHandler = () => {
-        axios.post(`https://paintonline-kirill55580666.amvera.io/image?id=${params.get('id')}`, {img: canvasRef.current.toDataURL()})
+        axios.post(`https://paintonline-kirill55580666.amvera.io/image?id=${params.get('sessionId')}`, {img: canvasRef.current.toDataURL()})
             .then()
     } // каждый действие сохраняем на сервере, для первого рендера новых пользователей
 
