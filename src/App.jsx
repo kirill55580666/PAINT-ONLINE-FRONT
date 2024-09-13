@@ -16,7 +16,8 @@ const App = () => {
                             <SettingBar/>
                             <Canvas/></>}
                     />
-                    <Route path="/PAINT-ONLINE-FRONT" element={<Navigate to={`f${(+new Date()).toString(16)}`} />}/>
+                    <Route path="/PAINT-ONLINE-FRONT" element={<Navigate to={`/PAINT-ONLINE-FRONT/f${(+new Date()).toString(16)}`} />}/>
+                    <Route path="*" element={<Navigate to={`/PAINT-ONLINE-FRONT/f${(+new Date()).toString(16)}`} />}/>
                 </Routes>
             </div>
         </BrowserRouter>
