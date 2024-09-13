@@ -11,13 +11,13 @@ const App = () => {
             <div className='app'>
                 <Routes>
                     <Route
-                        path='/PAINT-ONLINE-FRONT'
+                        path='/PAINT-ONLINE-FRONT/paint'
                         element={<><Toolbar/>
                             <SettingBar/>
                             <Canvas/></>}
                     />
-                    <Route path="/PAINT-ONLINE-FRONT" element={<Navigate to={`/PAINT-ONLINE-FRONT?sessionId=f${(+new Date()).toString(16)}`} />}/>
-                    <Route path="*" element={<Navigate to={`/PAINT-ONLINE-FRONT?sessionId=f${(+new Date()).toString(16)}`} />}/>
+                    <Route path="/PAINT-ONLINE-FRONT" element={<Navigate to={`/PAINT-ONLINE-FRONT/paint?sessionId=f${(+new Date()).toString(16)}`} />}/>
+                    <Route path="*" element={<Navigate to={`/PAINT-ONLINE-FRONT/paint?sessionId=f${(+new Date()).toString(16)}`} />}/>
                 </Routes>
             </div>
         </BrowserRouter>
