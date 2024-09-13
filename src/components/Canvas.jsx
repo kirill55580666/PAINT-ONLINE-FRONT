@@ -6,7 +6,7 @@ import axios from 'axios'
 import MyModal from "./UI/MyModal";
 import firstRender from "../API/firstRender";
 import canvasWebSocket from "../API/canvasWebSocket";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 function useQuery() {
     const { search } = useLocation();
@@ -20,9 +20,17 @@ const Canvas = observer(() => {
     const [modal, setModal] = useState(true)
     const params = useQuery();
 
+    const generatedSessionId = `f${(+new Date()).toString(16)}`;
+    const sessionId = React.useMemo(() => params.get('sessionId') || generatedSessionId, [params])
+    const [searchParams, setSearchParams] = useSearchParams();
+    console.log(1, sessionId)
+    if (!params.get('sessionId')) {
+        setSearchParams(`?${new URLSearchParams({ sessionId })}`)
+    }
+
     useEffect(() => {
         canvasState.setCanvas(canvasRef.current)
-        firstRender(canvasRef, params.get('sessionId'))
+        firstRender(canvasRef, sessionId)
         //canvasState.setUsername('New User')
         // axios.get(`http://localhost:5000/history?id=${params.id}`)
         //     .then(response => {
@@ -33,7 +41,7 @@ const Canvas = observer(() => {
 
     useEffect(() => {
         if(canvasState.username) {
-            canvasWebSocket(canvasRef, params.get('sessionId'))
+            canvasWebSocket(canvasRef, sessionId)
         }
 
     }, [canvasState.username]) // окрыть сокет, отправлять сообщения серверу о рисовани, принимать сообщения о рисовании
@@ -44,7 +52,7 @@ const Canvas = observer(() => {
     }
 
     const mouseUpHandler = () => {
-        axios.post(`https://paintonline-kirill55580666.amvera.io/image?id=${params.get('sessionId')}`, {img: canvasRef.current.toDataURL()})
+        axios.post(`https://paintonline-kirill55580666.amvera.io/image?id=${sessionId}`, {img: canvasRef.current.toDataURL()})
             .then()
     } // каждый действие сохраняем на сервере, для первого рендера новых пользователей
 
