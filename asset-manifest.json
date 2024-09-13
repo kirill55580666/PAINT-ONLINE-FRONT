@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PAINT-ONLINE-FRONT/static/css/main.5be5a86d.css",
-    "main.js": "/PAINT-ONLINE-FRONT/static/js/main.2bcd55c9.js",
+    "main.js": "/PAINT-ONLINE-FRONT/static/js/main.412cfb41.js",
     "static/media/eraser.svg": "/PAINT-ONLINE-FRONT/static/media/eraser.9d5608975ba332f73ac6.svg",
     "static/media/brush.svg": "/PAINT-ONLINE-FRONT/static/media/brush.3900558e613e23582d38.svg",
     "static/media/circle.svg": "/PAINT-ONLINE-FRONT/static/media/circle.ace27ac37d0ee3cff64f.svg",
@@ -12,10 +12,10 @@
     "static/media/undo.svg": "/PAINT-ONLINE-FRONT/static/media/undo.a2c39fdc77494f7ec995.svg",
     "static/media/redo.svg": "/PAINT-ONLINE-FRONT/static/media/redo.9ef4c7fc3a3da760609c.svg",
     "main.5be5a86d.css.map": "/PAINT-ONLINE-FRONT/static/css/main.5be5a86d.css.map",
-    "main.2bcd55c9.js.map": "/PAINT-ONLINE-FRONT/static/js/main.2bcd55c9.js.map"
+    "main.412cfb41.js.map": "/PAINT-ONLINE-FRONT/static/js/main.412cfb41.js.map"
   },
   "entrypoints": [
     "static/css/main.5be5a86d.css",
-    "static/js/main.2bcd55c9.js"
+    "static/js/main.412cfb41.js"
   ]
 }
